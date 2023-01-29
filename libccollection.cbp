@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="C Collection Library" />
+		<Option pch_mode="2" />
+		<Option compiler="tdm-gcc-32-mingw" />
+		<Build>
+			<Target title="Debug">
+				<Option output="lib/x86/Debug/ccollection" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/x86/Debug/" />
+				<Option type="2" />
+				<Option compiler="tdm-gcc-32-mingw" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-std=c99" />
+					<Add option="-O0" />
+					<Add option="-g" />
+					<Add option="-m32" />
+				</Compiler>
+				<Linker>
+					<Add option="-m32" />
+				</Linker>
+			</Target>
+			<Target title="Debug64">
+				<Option output="lib/x64/Debug/ccollection" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/x64/Debug/" />
+				<Option type="2" />
+				<Option compiler="tdm-gcc-64-mingw-w64" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-std=c99" />
+					<Add option="-O0" />
+					<Add option="-g" />
+					<Add option="-m64" />
+				</Compiler>
+				<Linker>
+					<Add option="-m64" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="lib/x86/Release/ccollection" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/x86/Release/" />
+				<Option type="2" />
+				<Option compiler="tdm-gcc-32-mingw" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-std=c99" />
+					<Add option="-O2" />
+					<Add option="-m32" />
+					<Add option="-DNDEBUG" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-m32" />
+				</Linker>
+			</Target>
+			<Target title="Release64">
+				<Option output="lib/x64/Release/ccollection" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/x64/Release/" />
+				<Option type="2" />
+				<Option compiler="tdm-gcc-64-mingw-w64" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-std=c99" />
+					<Add option="-O2" />
+					<Add option="-m64" />
+					<Add option="-DNDEBUG" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-m64" />
+				</Linker>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="Debug;Debug64;Release;Release64;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="include" />
+		</Compiler>
+		<Unit filename="include/bh.h" />
+		<Unit filename="include/dlist.h" />
+		<Unit filename="include/list.h" />
+		<Unit filename="include/pq.h" />
+		<Unit filename="include/queue.h" />
+		<Unit filename="include/stack.h" />
+		<Unit filename="src/binary_heap/bh_maxheap_algorithms.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/binary_heap/bh_minheap_algorithms.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/binary_heap/bh_sort_algorithms.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/binary_heap/bh_utility_functions.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/linked_list/dlist.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/linked_list/list.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/priority_queue/pq_init_destroy.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/priority_queue/pq_internal.h" />
+		<Unit filename="src/priority_queue/pq_mutation_algorithms.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/priority_queue/pq_priority_update.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/priority_queue/pq_utility_functions.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/stack_queue/queue.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/stack_queue/stack.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>
