@@ -163,6 +163,7 @@
 			<Add directory="include" />
 			<Add directory="src/dictionary/avl_tree" />
 			<Add directory="src/dictionary/binary_search_tree" />
+			<Add directory="src/priority_queue" />
 		</Compiler>
 		<Unit filename="include/avl.h">
 			<Option target="Debug" />
