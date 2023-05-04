@@ -76,6 +76,84 @@
 					<Add option="-m64" />
 				</Linker>
 			</Target>
+			<Target title="Test AVL">
+				<Option output="bin/test_avl" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/test_avl/" />
+				<Option type="1" />
+				<Option compiler="tdm-gcc-64-mingw-w64" />
+				<Compiler>
+					<Add option="-m64" />
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-m64" />
+				</Linker>
+			</Target>
+			<Target title="Test BST">
+				<Option output="bin/test_bst" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/test_bst/" />
+				<Option type="1" />
+				<Option compiler="tdm-gcc-32-mingw" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-m32" />
+				</Compiler>
+				<Linker>
+					<Add option="-m32" />
+				</Linker>
+			</Target>
+			<Target title="Test AVL Sort LinkedList">
+				<Option output="bin/test_avl_sort" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/test_avl_sort/" />
+				<Option type="1" />
+				<Option compiler="tdm-gcc-32-mingw" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-m32" />
+				</Compiler>
+				<Linker>
+					<Add option="-m32" />
+				</Linker>
+			</Target>
+			<Target title="Test AVL Sort DLinkedList">
+				<Option output="bin/test_avl_sort_dl" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/test_avl_sort_dl/" />
+				<Option type="1" />
+				<Option compiler="tdm-gcc-64-mingw-w64" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-m64" />
+				</Compiler>
+				<Linker>
+					<Add option="-m64" />
+				</Linker>
+			</Target>
+			<Target title="Test AVL With String">
+				<Option output="bin/test_avl_str" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/test_avl_str/" />
+				<Option type="1" />
+				<Option compiler="tdm-gcc-32-mingw" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-m32" />
+				</Compiler>
+				<Linker>
+					<Add option="-m32" />
+				</Linker>
+			</Target>
+			<Target title="TestHTable_Insert_Rehash_Remove">
+				<Option output="bin/test_htable_insert_rehash_remove" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/test_htable_insert_rehash_remove/" />
+				<Option type="1" />
+				<Option compiler="tdm-gcc-64-mingw-w64" />
+				<Compiler>
+					<Add option="-m64" />
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-m64" />
+				</Linker>
+			</Target>
 		</Build>
 		<VirtualTargets>
 			<Add alias="All" targets="Debug;Debug64;Release;Release64;" />
@@ -83,24 +161,271 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add directory="include" />
+			<Add directory="src/dictionary/avl_tree" />
+			<Add directory="src/dictionary/binary_search_tree" />
 		</Compiler>
-		<Unit filename="include/bh.h" />
+		<Unit filename="include/avl.h">
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+			<Option target="Test AVL" />
+			<Option target="Test BST" />
+			<Option target="Test AVL Sort LinkedList" />
+			<Option target="Test AVL Sort DLinkedList" />
+			<Option target="Test AVL With String" />
+		</Unit>
+		<Unit filename="include/bh.h">
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+		</Unit>
+		<Unit filename="include/bst.h">
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+			<Option target="Test AVL" />
+			<Option target="Test BST" />
+			<Option target="Test AVL Sort LinkedList" />
+			<Option target="Test AVL Sort DLinkedList" />
+			<Option target="Test AVL With String" />
+		</Unit>
 		<Unit filename="include/dlist.h" />
+		<Unit filename="include/htable.h">
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+			<Option target="TestHTable_Insert_Rehash_Remove" />
+		</Unit>
 		<Unit filename="include/list.h" />
-		<Unit filename="include/pq.h" />
+		<Unit filename="include/pq.h">
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+		</Unit>
 		<Unit filename="include/queue.h" />
 		<Unit filename="include/stack.h" />
 		<Unit filename="src/binary_heap/bh_maxheap_algorithms.c">
 			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
 		</Unit>
 		<Unit filename="src/binary_heap/bh_minheap_algorithms.c">
 			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
 		</Unit>
 		<Unit filename="src/binary_heap/bh_sort_algorithms.c">
 			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
 		</Unit>
 		<Unit filename="src/binary_heap/bh_utility_functions.c">
 			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+		</Unit>
+		<Unit filename="src/dictionary/avl_tree/avl_internal.h">
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+			<Option target="Test AVL" />
+			<Option target="Test AVL Sort LinkedList" />
+			<Option target="Test AVL Sort DLinkedList" />
+			<Option target="Test AVL With String" />
+		</Unit>
+		<Unit filename="src/dictionary/avl_tree/avl_mutation.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+			<Option target="Test AVL" />
+			<Option target="Test AVL Sort LinkedList" />
+			<Option target="Test AVL Sort DLinkedList" />
+			<Option target="Test AVL With String" />
+		</Unit>
+		<Unit filename="src/dictionary/avl_tree/avl_restructure_algorithms.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+			<Option target="Test AVL" />
+			<Option target="Test AVL Sort LinkedList" />
+			<Option target="Test AVL Sort DLinkedList" />
+			<Option target="Test AVL With String" />
+		</Unit>
+		<Unit filename="src/dictionary/avl_tree/avl_sort_algorithms.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+			<Option target="Test AVL" />
+			<Option target="Test AVL Sort LinkedList" />
+			<Option target="Test AVL Sort DLinkedList" />
+			<Option target="Test AVL With String" />
+		</Unit>
+		<Unit filename="src/dictionary/avl_tree/tests/main_avl.c">
+			<Option compilerVar="CC" />
+			<Option target="Test AVL" />
+		</Unit>
+		<Unit filename="src/dictionary/avl_tree/tests/main_avl_sort_doublylinkedlist.c">
+			<Option compilerVar="CC" />
+			<Option target="Test AVL Sort DLinkedList" />
+		</Unit>
+		<Unit filename="src/dictionary/avl_tree/tests/main_avl_sort_linkedlist.c">
+			<Option compilerVar="CC" />
+			<Option target="Test AVL Sort LinkedList" />
+		</Unit>
+		<Unit filename="src/dictionary/avl_tree/tests/main_avl_string.c">
+			<Option compilerVar="CC" />
+			<Option target="Test AVL With String" />
+		</Unit>
+		<Unit filename="src/dictionary/binary_search_tree/bst_init_destroy.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+			<Option target="Test BST" />
+			<Option target="Test AVL" />
+			<Option target="Test AVL Sort LinkedList" />
+			<Option target="Test AVL Sort DLinkedList" />
+			<Option target="Test AVL With String" />
+		</Unit>
+		<Unit filename="src/dictionary/binary_search_tree/bst_internal.h">
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+			<Option target="Test BST" />
+			<Option target="Test AVL" />
+			<Option target="Test AVL Sort LinkedList" />
+			<Option target="Test AVL Sort DLinkedList" />
+			<Option target="Test AVL With String" />
+		</Unit>
+		<Unit filename="src/dictionary/binary_search_tree/bst_key_value_list.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+			<Option target="Test BST" />
+			<Option target="Test AVL" />
+			<Option target="Test AVL Sort LinkedList" />
+			<Option target="Test AVL Sort DLinkedList" />
+			<Option target="Test AVL With String" />
+		</Unit>
+		<Unit filename="src/dictionary/binary_search_tree/bst_mutation.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+			<Option target="Test BST" />
+			<Option target="Test AVL" />
+			<Option target="Test AVL Sort LinkedList" />
+			<Option target="Test AVL Sort DLinkedList" />
+			<Option target="Test AVL With String" />
+		</Unit>
+		<Unit filename="src/dictionary/binary_search_tree/bst_query.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+			<Option target="Test BST" />
+			<Option target="Test AVL" />
+			<Option target="Test AVL Sort LinkedList" />
+			<Option target="Test AVL Sort DLinkedList" />
+			<Option target="Test AVL With String" />
+		</Unit>
+		<Unit filename="src/dictionary/binary_search_tree/bst_search.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+			<Option target="Test BST" />
+			<Option target="Test AVL" />
+			<Option target="Test AVL Sort LinkedList" />
+			<Option target="Test AVL Sort DLinkedList" />
+			<Option target="Test AVL With String" />
+		</Unit>
+		<Unit filename="src/dictionary/binary_search_tree/bst_traversal_algorithms.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+			<Option target="Test BST" />
+			<Option target="Test AVL" />
+			<Option target="Test AVL Sort LinkedList" />
+			<Option target="Test AVL Sort DLinkedList" />
+			<Option target="Test AVL With String" />
+		</Unit>
+		<Unit filename="src/dictionary/binary_search_tree/tests/main_bst.c">
+			<Option compilerVar="CC" />
+			<Option target="Test BST" />
+		</Unit>
+		<Unit filename="src/hashtable/htable_data_transfer.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+			<Option target="TestHTable_Insert_Rehash_Remove" />
+		</Unit>
+		<Unit filename="src/hashtable/htable_hash_algorithms.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+			<Option target="TestHTable_Insert_Rehash_Remove" />
+		</Unit>
+		<Unit filename="src/hashtable/htable_init_destroy.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+			<Option target="TestHTable_Insert_Rehash_Remove" />
+		</Unit>
+		<Unit filename="src/hashtable/htable_mutation_algorithms.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+			<Option target="TestHTable_Insert_Rehash_Remove" />
+		</Unit>
+		<Unit filename="src/hashtable/htable_query.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+			<Option target="TestHTable_Insert_Rehash_Remove" />
+		</Unit>
+		<Unit filename="src/hashtable/tests/main_hable_insert_rehash_remove.c">
+			<Option compilerVar="CC" />
+			<Option target="TestHTable_Insert_Rehash_Remove" />
 		</Unit>
 		<Unit filename="src/linked_list/dlist.c">
 			<Option compilerVar="CC" />
@@ -110,16 +435,37 @@
 		</Unit>
 		<Unit filename="src/priority_queue/pq_init_destroy.c">
 			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
 		</Unit>
-		<Unit filename="src/priority_queue/pq_internal.h" />
+		<Unit filename="src/priority_queue/pq_internal.h">
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
+		</Unit>
 		<Unit filename="src/priority_queue/pq_mutation_algorithms.c">
 			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
 		</Unit>
 		<Unit filename="src/priority_queue/pq_priority_update.c">
 			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
 		</Unit>
 		<Unit filename="src/priority_queue/pq_utility_functions.c">
 			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Debug64" />
+			<Option target="Release" />
+			<Option target="Release64" />
 		</Unit>
 		<Unit filename="src/stack_queue/queue.c">
 			<Option compilerVar="CC" />
