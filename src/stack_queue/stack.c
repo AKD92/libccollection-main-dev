@@ -24,7 +24,7 @@
 
 int stack_push(Stack *st, const void *data) {
     
-    return list_ins_next((List *) st, NULL, data);
+    return slist_ins_next((SList *) st, NULL, data);
 }
 
 
@@ -32,7 +32,7 @@ int stack_push(Stack *st, const void *data) {
 
 int stack_pop(Stack *st, void **data) {
     
-    return list_rem_next((List *) st, NULL, data);
+    return slist_rem_next((SList *) st, NULL, data);
 }
 
 

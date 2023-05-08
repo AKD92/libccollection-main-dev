@@ -1,7 +1,7 @@
 
 #include "htable.h"
 
-int htable_keys(const HTable *dictionary, List *keys) {
+int htable_keys(const HTable *dictionary, SList *keys) {
     DList *bucket;
     DListElem *entry_container;
     HKeyValuePair *entry;
@@ -15,7 +15,7 @@ int htable_keys(const HTable *dictionary, List *keys) {
         entry_container = dlist_head(bucket);
         while (entry_container != NULL) {
             entry = dlist_data(entry_container);
-            (void) list_ins_next(keys, list_tail(keys), entry->key);
+            (void) slist_ins_next(keys, slist_tail(keys), entry->key);
             entry_container = dlist_next(entry_container);
         }
     }
@@ -23,7 +23,7 @@ int htable_keys(const HTable *dictionary, List *keys) {
 }
 
 
-int htable_values(const HTable *dictionary, List *values) {
+int htable_values(const HTable *dictionary, SList *values) {
     DList *bucket;
     DListElem *entry_container;
     HKeyValuePair *entry;
@@ -37,7 +37,7 @@ int htable_values(const HTable *dictionary, List *values) {
         entry_container = dlist_head(bucket);
         while (entry_container != NULL) {
             entry = dlist_data(entry_container);
-            (void) list_ins_next(values, list_tail(values), entry->value);
+            (void) slist_ins_next(values, slist_tail(values), entry->value);
             entry_container = dlist_next(entry_container);
         }
     }

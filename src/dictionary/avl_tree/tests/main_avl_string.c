@@ -16,8 +16,8 @@ int cmp_str(const void *k1, const void *k2);
 int main(void) {
     
     AvlTree aTree;
-    List lString;
-    ListElem *pListElem;
+    SList lString;
+    SListElem *pListElem;
     char sInput[2048], *pChar;
     unsigned int itr, iTotal;
     
@@ -26,7 +26,7 @@ int main(void) {
     gets(sInput);
     sscanf(sInput, "%u", &iTotal);
     
-    list_init(&lString, free);
+    slist_init(&lString, free);
     avl_init(&aTree, cmp_str, 0, 0);
     
     for (itr = 0; itr < iTotal; itr += 1) {
@@ -40,17 +40,17 @@ int main(void) {
     avl_keys(&aTree, &lString);
     
     printf("Printing contents of AVL Tree\n");
-    pListElem = list_head(&lString);
+    pListElem = slist_head(&lString);
     PRINT_STRING_LIST:
     if (pListElem != 0) {
-        pChar = (char *) list_data(pListElem);
+        pChar = (char *) slist_data(pListElem);
         printf("%s\n", pChar);
-        pListElem = list_next(pListElem);
+        pListElem = slist_next(pListElem);
         goto PRINT_STRING_LIST;
     }
     
     avl_destroy(&aTree);
-    list_destroy(&lString);
+    slist_destroy(&lString);
     
     return 0;
 }

@@ -5,7 +5,7 @@
 #define HTABLE_INITIAL_CAPACITY                 101
 #define HTABLE_LOAD_FACTOR                      0.70
 
-#include <list.h>
+#include <slist.h>
 #include <dlist.h>
 #include <stdbool.h>
 
@@ -373,7 +373,7 @@ int htable_remove(HTable *dictionary, const void *key, void **removed_key, void 
  *      -1 for error (parameters are null)
  *      -2 if the hash table is empty
  */
-int htable_keys(const HTable *dictionary, List *keys);
+int htable_keys(const HTable *dictionary, SList *keys);
 
 
 /*
@@ -393,7 +393,7 @@ int htable_keys(const HTable *dictionary, List *keys);
  *      -1 for error (parameters are null)
  *      -2 if the hash table is empty
  */
-int htable_values(const HTable *dictionary, List *values);
+int htable_values(const HTable *dictionary, SList *values);
 
 
 #endif // HTABLE_H_INCLUDED

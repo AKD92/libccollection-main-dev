@@ -180,13 +180,8 @@ int dlist_remove(DList *list, DListElem *elem, void **data) {
 
 
 
-int dlist_search
-(
-    DList *list,
-    void *data,
-    DListElem **elem,
-    int (*comparator) (const void *data1, const void *data2)
-) {
+int dlist_search(DList *list, void *data, DListElem **elem,
+                 int (*comparator) (const void *data1, const void *data2)) {
     int cmpres, res;
     register DListElem *n;
     

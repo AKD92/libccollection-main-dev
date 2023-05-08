@@ -108,7 +108,7 @@ int avl_remove(AvlTree *pTree, const void *pKey, void **pRemovedKey, void **pRem
  *      0 for successful sorting
  *      -1 if parameters are invalid
 */
-int avl_treesort(List *list, int (*compare) (const void *arg1, const void *arg2));
+int avl_treesort(SList *list, int (*compare) (const void *arg1, const void *arg2));
 
 
 
@@ -155,7 +155,7 @@ int avl_treesort_dl(DList *dlist, int (*compare) (const void *arg1, const void *
  *      0 for successful sorting
  *      -1 if parameters are invalid
 */
-int avl_treesort_asc(List *list, int (*compare) (const void *arg1, const void *arg2));
+int avl_treesort_asc(SList *list, int (*compare) (const void *arg1, const void *arg2));
 
 
 
@@ -178,7 +178,7 @@ int avl_treesort_asc(List *list, int (*compare) (const void *arg1, const void *a
  *      0 for successful sorting
  *      -1 if parameters are invalid
 */
-int avl_treesort_desc(List *list, int (*compare) (const void *arg1, const void *arg2));
+int avl_treesort_desc(SList *list, int (*compare) (const void *arg1, const void *arg2));
 
 
 

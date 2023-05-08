@@ -14,7 +14,7 @@
 
 #include "bst.h"
 #include "bst_internal.h"
-#include <list.h>
+#include <slist.h>
 #include <queue.h>
 
 
@@ -23,11 +23,11 @@
 
 
 
-int bst_keys(const BisTree *pTree, List *lstKeys) {
+int bst_keys(const BisTree *pTree, SList *lstKeys) {
     
     BNode *pNode;
     Queue qNodes;
-    ListElem *pLstElem;
+    SListElem *pLstElem;
     
     if (pTree == 0 || lstKeys == 0)
         return -1;
@@ -40,11 +40,11 @@ int bst_keys(const BisTree *pTree, List *lstKeys) {
     queue_init(&qNodes, 0);
     bst_inorder(bst_root((BisTree *) pTree), BNODE_ALLOW_INTERNAL, &qNodes);
     
-    pLstElem = list_tail(lstKeys);
+    pLstElem = slist_tail(lstKeys);
     while (queue_size(&qNodes) > 0) {
         queue_dequeue(&qNodes, (void **) &pNode);
-        list_ins_next(lstKeys, pLstElem, (const void *) pNode->pKey);
-        pLstElem = list_tail(lstKeys);
+        slist_ins_next(lstKeys, pLstElem, (const void *) pNode->pKey);
+        pLstElem = slist_tail(lstKeys);
     }
     
     queue_destroy(&qNodes);
@@ -54,11 +54,11 @@ int bst_keys(const BisTree *pTree, List *lstKeys) {
 
 
 
-int bst_elements(const BisTree *pTree, List *lstElements) {
+int bst_elements(const BisTree *pTree, SList *lstElements) {
     
     BNode *pNode;
     Queue qNodes;
-    ListElem *pLstElem;
+    SListElem *pLstElem;
     
     if (pTree == 0 || lstElements == 0)
         return -1;
@@ -71,11 +71,11 @@ int bst_elements(const BisTree *pTree, List *lstElements) {
     queue_init(&qNodes, 0);
     bst_inorder(bst_root((BisTree *) pTree), BNODE_ALLOW_INTERNAL, &qNodes);
     
-    pLstElem = list_tail(lstElements);
+    pLstElem = slist_tail(lstElements);
     while (queue_size(&qNodes) > 0) {
         queue_dequeue(&qNodes, (void **) &pNode);
-        list_ins_next(lstElements, pLstElem, (const void *) pNode->pElement);
-        pLstElem = list_tail(lstElements);
+        slist_ins_next(lstElements, pLstElem, (const void *) pNode->pElement);
+        pLstElem = slist_tail(lstElements);
     }
     
     queue_destroy(&qNodes);
@@ -84,12 +84,12 @@ int bst_elements(const BisTree *pTree, List *lstElements) {
 
 
 
-int bst_keys_elements(const BisTree *pTree, List *lstKeys, List *lstElements) {
+int bst_keys_elements(const BisTree *pTree, SList *lstKeys, SList *lstElements) {
     
     BNode *pNode;
     Queue qNodes;
-    ListElem *pLstElem1;
-    ListElem *pLstElem2;
+    SListElem *pLstElem1;
+    SListElem *pLstElem2;
     
     if (pTree == 0 || lstKeys == 0 || lstElements == 0)
         return -1;
@@ -102,15 +102,15 @@ int bst_keys_elements(const BisTree *pTree, List *lstKeys, List *lstElements) {
     queue_init(&qNodes, 0);
     bst_inorder(bst_root((BisTree *) pTree), BNODE_ALLOW_INTERNAL, &qNodes);
     
-    pLstElem1 = list_tail(lstKeys);
-    pLstElem2 = list_tail(lstElements);
+    pLstElem1 = slist_tail(lstKeys);
+    pLstElem2 = slist_tail(lstElements);
     
     while (queue_size(&qNodes) > 0) {
         queue_dequeue(&qNodes, (void **) &pNode);
-        list_ins_next(lstKeys, pLstElem1, (const void *) pNode->pKey);
-        list_ins_next(lstElements, pLstElem2, (const void *) pNode->pElement);
-        pLstElem1 = list_tail(lstKeys);
-        pLstElem2 = list_tail(lstElements);
+        slist_ins_next(lstKeys, pLstElem1, (const void *) pNode->pKey);
+        slist_ins_next(lstElements, pLstElem2, (const void *) pNode->pElement);
+        pLstElem1 = slist_tail(lstKeys);
+        pLstElem2 = slist_tail(lstElements);
     }
     
     queue_destroy(&qNodes);

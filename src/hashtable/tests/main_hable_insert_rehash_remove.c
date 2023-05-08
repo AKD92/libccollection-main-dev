@@ -24,8 +24,8 @@ bool string_equals(const void *obj1, const void *obj2) {
 
 int main(void) {
     HTable dictionary;
-    List out_keys, out_values;
-    ListElem *elem;
+    SList out_keys, out_values;
+    SListElem *elem;
     char *key, *value, *removed_key, *removed_value;
     int result;
     unsigned int i, len;
@@ -33,7 +33,7 @@ int main(void) {
     char *ids[] = {"Hello", "This", "Is", "The", "World", "Monster", "Rabbit", "Hole"};
     char *values[] = {"Gallo", "Kiss", "As", "Thy", "Earth", "Devil", "Runner", "Circle"};
     
-    list_init(&out_keys, NULL);
+    slist_init(&out_keys, NULL);
     htable_init(&dictionary, string_hash, string_equals, NULL, NULL);
     for (i = 0; i < 4; i++) {
         result = htable_insert(&dictionary, (const void *)ids[i], (const void *)values[i]);
@@ -50,21 +50,21 @@ int main(void) {
            
     printf("Reading keys:\n");
     htable_keys(&dictionary, &out_keys);
-    elem = list_head(&out_keys);
+    elem = slist_head(&out_keys);
     while (elem != NULL) {
-        key = (char *)list_data(elem);
+        key = (char *)slist_data(elem);
         htable_lookup(&dictionary, (const void *)key, (void **)&value);
         printf("Read key:value %s:%s\n", key, value);
-        elem = list_next(elem);
+        elem = slist_next(elem);
     }
     
     printf("Removing keys and values:\n");
-    elem = list_head(&out_keys);
+    elem = slist_head(&out_keys);
     while (elem != NULL) {
-        key = (char *)list_data(elem);
+        key = (char *)slist_data(elem);
         result = htable_remove(&dictionary, (const void *)key, (void **)&removed_key, (void **)&removed_value);
         printf("removing res %d key:vlaue %s:%s\n", result, removed_key, removed_value);
-        elem = list_next(elem);
+        elem = slist_next(elem);
     }
     
     printf("Removing non-existent key:\n");
@@ -83,7 +83,7 @@ int main(void) {
     }
     printf("\n");
     
-    list_destroy(&out_keys);
+    slist_destroy(&out_keys);
     htable_destroy(&dictionary);
     return 0;
 }

@@ -20,8 +20,8 @@ int main(void) {
     Queue nodes;
     int *pKey, *pRemovedKey;
     int opRes;
-    List *list;
-    ListElem *elem;
+    SList *list;
+    SListElem *elem;
     BNode *pNode;
     int keys[13] = {44, 17, 88, 28, 65, 97, 29, 54, 82, 76, 80, 78 , 28};
     unsigned int depth, height;
@@ -51,12 +51,12 @@ int main(void) {
     printf("Printing after insertion (Level LR Order) (Internal = %u)\n",
                             queue_size(&nodes));
     
-    list = (List *) &nodes;
-    elem = list_head(list);
+    list = (SList *) &nodes;
+    elem = slist_head(list);
     while (elem != 0) {
-        pNode = (BNode *) list_data(elem);
+        pNode = (BNode *) slist_data(elem);
         printf("%d ", *(int *)(pNode->pKey));
-        elem = list_next(elem);
+        elem = slist_next(elem);
     }
     printf("\n\n");
     
@@ -67,12 +67,12 @@ int main(void) {
     printf("Printing after insertion (Pre Order) (Internal = %u)\n",
                             queue_size(&nodes));
     
-    list = (List *) &nodes;
-    elem = list_head(list);
+    list = (SList *) &nodes;
+    elem = slist_head(list);
     while (elem != 0) {
-        pNode = (BNode *) list_data(elem);
+        pNode = (BNode *) slist_data(elem);
         printf("%d ", *(int *)(pNode->pKey));
-        elem = list_next(elem);
+        elem = slist_next(elem);
     }
     printf("\n\n");
     
@@ -83,12 +83,12 @@ int main(void) {
     printf("Printing after insertion (Post Order) (Internal = %u)\n",
                             queue_size(&nodes));
                             
-    list = (List *) &nodes;
-    elem = list_head(list);
+    list = (SList *) &nodes;
+    elem = slist_head(list);
     while (elem != 0) {
-        pNode = (BNode *) list_data(elem);
+        pNode = (BNode *) slist_data(elem);
         printf("%d ", *(int *)(pNode->pKey));
-        elem = list_next(elem);
+        elem = slist_next(elem);
     }
     printf("\n\n");
     
@@ -99,12 +99,12 @@ int main(void) {
     printf("Printing after insertion (In Order) (Internal = %u)\n",
                             queue_size(&nodes));
                             
-    list = (List *) &nodes;
-    elem = list_head(list);
+    list = (SList *) &nodes;
+    elem = slist_head(list);
     while (elem != 0) {
-        pNode = (BNode *) list_data(elem);
+        pNode = (BNode *) slist_data(elem);
         printf("%d ", *(int *)(pNode->pKey));
-        elem = list_next(elem);
+        elem = slist_next(elem);
     }
     printf("\n\n");
     
@@ -142,12 +142,12 @@ int main(void) {
     printf("Printing after removal (Level LR Order) (Internal = %u)\n",
                             queue_size(&nodes));
                             
-    list = (List *) &nodes;
-    elem = list_head(list);
+    list = (SList *) &nodes;
+    elem = slist_head(list);
     while (elem != 0) {
-        pNode = (BNode *) list_data(elem);
+        pNode = (BNode *) slist_data(elem);
         printf("%d ", *(int *)(pNode->pKey));
-        elem = list_next(elem);
+        elem = slist_next(elem);
     }
     printf("\n\n");
     
@@ -158,12 +158,12 @@ int main(void) {
     printf("Printing after removal (Pre Order) (Internal = %u)\n",
                             queue_size(&nodes));
                             
-    list = (List *) &nodes;
-    elem = list_head(list);
+    list = (SList *) &nodes;
+    elem = slist_head(list);
     while (elem != 0) {
-        pNode = (BNode *) list_data(elem);
+        pNode = (BNode *) slist_data(elem);
         printf("%d ", *(int *)(pNode->pKey));
-        elem = list_next(elem);
+        elem = slist_next(elem);
     }
     printf("\n\n");
     
@@ -174,12 +174,12 @@ int main(void) {
     printf("Printing after insertion (Post Order) (Internal = %u)\n",
                             queue_size(&nodes));
                             
-    list = (List *) &nodes;
-    elem = list_head(list);
+    list = (SList *) &nodes;
+    elem = slist_head(list);
     while (elem != 0) {
-        pNode = (BNode *) list_data(elem);
+        pNode = (BNode *) slist_data(elem);
         printf("%d ", *(int *)(pNode->pKey));
-        elem = list_next(elem);
+        elem = slist_next(elem);
     }
     printf("\n\n");
     
@@ -190,12 +190,12 @@ int main(void) {
     printf("Printing after removal (In Order) (Internal = %u)\n",
                             queue_size(&nodes));
                             
-    list = (List *) &nodes;
-    elem = list_head(list);
+    list = (SList *) &nodes;
+    elem = slist_head(list);
     while (elem != 0) {
-        pNode = (BNode *) list_data(elem);
+        pNode = (BNode *) slist_data(elem);
         printf("%d ", *(int *)(pNode->pKey));
-        elem = list_next(elem);
+        elem = slist_next(elem);
     }
     printf("\n\n");
     
