@@ -6,7 +6,7 @@
 #include "avl_internal.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <queue.h>
+#include "queue.h"
 
 
 

@@ -14,8 +14,8 @@
 
 #include "bst.h"
 #include "bst_internal.h"
-#include <slist.h>
-#include <queue.h>
+#include "slist.h"
+#include "queue.h"
 
 
 

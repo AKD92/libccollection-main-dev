@@ -14,10 +14,10 @@
 
 #include "avl.h"
 #include "avl_internal.h"
-#include <slist.h>
-#include <dlist.h>
-#include <stack.h>
-#include <queue.h>
+#include "slist.h"
+#include "dlist.h"
+#include "stack.h"
+#include "queue.h"
 
 
 

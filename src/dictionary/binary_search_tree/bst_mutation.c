@@ -16,7 +16,7 @@
 
 #include "bst.h"
 #include "bst_internal.h"
-#include <queue.h>
+#include "queue.h"
 #include <stdlib.h>
 #include <string.h>
 

@@ -2,8 +2,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <slist.h>
-#include <dlist.h>
+#include "slist.h"
+#include "dlist.h"
 #include "avl.h"
 
 

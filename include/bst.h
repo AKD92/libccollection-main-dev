@@ -18,9 +18,9 @@
 
 
 
-#include <slist.h>
-#include <dlist.h>
-#include <queue.h>
+#include "slist.h"
+#include "dlist.h"
+#include "queue.h"
 
 
 

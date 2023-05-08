@@ -17,7 +17,7 @@
 #include "pq_internal.h"
 #include <stdlib.h>
 #include <string.h>
-#include <bh.h>
+#include "bh.h"
 
 
 

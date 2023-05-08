@@ -14,8 +14,8 @@
 
 #include "bst.h"
 #include "bst_internal.h"
-#include <stack.h>
-#include <queue.h>
+#include "stack.h"
+#include "queue.h"
 
 
 

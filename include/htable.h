@@ -5,8 +5,8 @@
 #define HTABLE_INITIAL_CAPACITY                 101
 #define HTABLE_LOAD_FACTOR                      0.70
 
-#include <slist.h>
-#include <dlist.h>
+#include "slist.h"
+#include "dlist.h"
 #include <stdbool.h>
 
 /*

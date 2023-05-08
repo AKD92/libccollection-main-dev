@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <slist.h>
+#include "slist.h"
 #include "avl.h"
 
 

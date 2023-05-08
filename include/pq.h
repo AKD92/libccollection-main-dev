@@ -33,27 +33,22 @@
 
 
 enum PQ_HeapOrient_t {
-    
     PQ_HEAP_MIN = 0,
     PQ_HEAP_MAX = 1,
-    
 };
 
 
 struct PQnode_ {
-    
     void *priority;                         /* Pointer to the priority element */
     void *elem;                             /* Pointer to the element */
     
     int (*fpComparePriority)                /* User specifed function for comparing two priority elements */
             (const void *pr1, const void *pr2);
-            
 };
 typedef struct PQnode_ PQnode;
 
 
 struct PriorityQueue_DE_ {
-    
     PQnode *pArrayNode;                     /* Array of PQnode objects, which will carry user keys & data */
                                             /* The operations of a PQ like removeMin(), removeMAX(), insert() */
                                             /* Will eventually manipulate this array using HEAP algorithms */
@@ -66,7 +61,6 @@ struct PriorityQueue_DE_ {
     int     (*fpComparePriority)    (const void *key1, const void *key2);
     void    (*fpDestroyPriority)    (void *priority);
     void    (*fpDestroyElement)     (void *element);
-    
 };
 typedef struct PriorityQueue_DE_ PriorityQueue;
 
