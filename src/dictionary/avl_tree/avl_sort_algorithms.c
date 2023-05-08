@@ -31,9 +31,9 @@ static void destroy_list(void *arg);
 
 
 
-int avl_treesort(SList *list, int (*fpCompare) (const void *arg1, const void *arg2))
+int avl_treesort_sl(SList *list, int (*fpCompare) (const void *arg1, const void *arg2))
 {
-    return avl_treesort_asc(list, fpCompare);
+    return avl_treesort_sl_asc(list, fpCompare);
 }
 
 
@@ -45,7 +45,7 @@ int avl_treesort_dl(DList *dlist, int (*fpCompare) (const void *arg1, const void
 
 
 
-int avl_treesort_asc(SList *list, int (*fpCompare) (const void *arg1, const void *arg2))
+int avl_treesort_sl_asc(SList *list, int (*fpCompare) (const void *arg1, const void *arg2))
 {
     
     void *pDataElem;
@@ -121,7 +121,7 @@ int avl_treesort_asc(SList *list, int (*fpCompare) (const void *arg1, const void
 
 
 
-int avl_treesort_desc(SList *list, int (*fpCompare) (const void *arg1, const void *arg2))
+int avl_treesort_sl_desc(SList *list, int (*fpCompare) (const void *arg1, const void *arg2))
 {
     
     void *pDataElem;
