@@ -24,7 +24,7 @@
 
 int queue_enqueue(Queue *queue, const void *data) {
     
-    return list_ins_next((List *) queue, list_tail(queue), data);
+    return slist_ins_next((SList *) queue, slist_tail(queue), data);
 }
 
 
@@ -32,7 +32,7 @@ int queue_enqueue(Queue *queue, const void *data) {
 
 int queue_dequeue(Queue *queue, void **data) {
     
-    return list_rem_next((List *) queue, NULL, data);
+    return slist_rem_next((SList *) queue, NULL, data);
 }
 
 

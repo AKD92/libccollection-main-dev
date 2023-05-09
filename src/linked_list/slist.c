@@ -14,7 +14,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "list.h"
+#include "slist.h"
 
 
 
@@ -23,13 +23,13 @@
 
 
 
-int list_init(List *list, void (*destroy) (void *data)) {
+int slist_init(SList *list, void (*destroy) (void *data)) {
     
     if (list == NULL)
         return -1;
         
     /*  Initialize the specified list */
-    memset((void *) list, 0, sizeof(List));
+    memset((void *) list, 0, sizeof(SList));
     
     list->size = 0;
     list->destroy = destroy;
@@ -43,7 +43,7 @@ int list_init(List *list, void (*destroy) (void *data)) {
 
 
 
-void list_destroy(List *list) {
+void slist_destroy(SList *list) {
 
     void *data;
     int rem_result;
@@ -59,8 +59,8 @@ void list_destroy(List *list) {
         element if the 'destroy' function is provided to dispose
         user-specified elements.
     */
-    while(list_size(list) > 0) {
-        rem_result = list_rem_next(list, NULL, &data);
+    while(slist_size(list) > 0) {
+        rem_result = slist_rem_next(list, NULL, &data);
         
         /*  ret-val = 0 means, an object was removed successfully */
         if (rem_result == 0 && list->destroy != NULL) {
@@ -74,9 +74,9 @@ void list_destroy(List *list) {
 
 
 
-int list_ins_next(List *list, ListElem *elem, const void *data) {
+int slist_ins_next(SList *list, SListElem *elem, const void *data) {
 
-    ListElem *new_elem;
+    SListElem *new_elem;
     
     
     /*  Check for invalid arguments */
@@ -85,7 +85,7 @@ int list_ins_next(List *list, ListElem *elem, const void *data) {
     
     
     /*  Create new node element to hold the element */
-    new_elem = (ListElem*) malloc(sizeof(ListElem));
+    new_elem = (SListElem*) malloc(sizeof(SListElem));
     if (new_elem == 0)
         return -1;
     
@@ -96,7 +96,7 @@ int list_ins_next(List *list, ListElem *elem, const void *data) {
     
     /*  We insert this new node into the head of the List */
     if (elem == NULL) {
-        if (list_size(list) == 0)
+        if (slist_size(list) == 0)
             list->tail = new_elem;
         
         new_elem->next = list->head;
@@ -106,7 +106,7 @@ int list_ins_next(List *list, ListElem *elem, const void *data) {
     
     /*  Insert this new node after the node specified as elem */
     else {
-        if (list_is_tail(list, elem) == 1)
+        if (slist_is_tail(list, elem) == 1)
             list->tail = new_elem;
 
         new_elem->next = elem->next;
@@ -114,48 +114,48 @@ int list_ins_next(List *list, ListElem *elem, const void *data) {
 
     }
     
-    list_size(list) += 1;
+    slist_size(list) += 1;
     return 0;
 }
 
 
 
 
-int list_rem_next(List *list, ListElem *elem, void **data) {
+int slist_rem_next(SList *list, SListElem *elem, void **data) {
 
-    ListElem *old_elem;
+    SListElem *old_elem;
     
     
     /*  Check for invalid arguments */
     if (list == NULL || data == NULL)
         return -1;
-    if (list_size(list) == 0)
+    if (slist_size(list) == 0)
         return -1;
     
     
     /*  Remove the first node (head) of the List */
     if (elem == NULL) {
-        old_elem = list_head(list);
+        old_elem = slist_head(list);
         *data = old_elem->data;
         list->head = old_elem->next;
-        if (list_is_tail(list, old_elem) == 1)
+        if (slist_is_tail(list, old_elem) == 1)
             list->tail = NULL;
     }
     
     /*  Remove the node which is the next node of the specified elem */
     else {
-        if (list_next(elem) == NULL)
+        if (slist_next(elem) == NULL)
             return -1;
 
-        old_elem = list_next(elem);
-        *data = list_data(old_elem);
+        old_elem = slist_next(elem);
+        *data = slist_data(old_elem);
         elem->next = old_elem->next;
-        if (list_is_tail(list, old_elem) == 1)
+        if (slist_is_tail(list, old_elem) == 1)
             list->tail = elem;
 
     }
     
-    list_size(list) -= 1;
+    slist_size(list) -= 1;
     free((void *) old_elem);
     return 0;
 }
@@ -163,20 +163,14 @@ int list_rem_next(List *list, ListElem *elem, void **data) {
 
 
 
-int list_search
-(
-    List *list,
-    void *data,
-    ListElem **elem,
-    int (*comparator) (const void *data1, const void *data2)
-) {
-
+int slist_search(SList *list, void *data, SListElem **elem,
+                 int (*comparator) (const void *data1, const void *data2)) {
     int cmpres;
     int res;
-    register ListElem *n;
+    register SListElem *n;
 
     res = 0;
-    n = list_head(list);
+    n = slist_head(list);
 
     if (data == NULL)
         return -1;
@@ -189,7 +183,7 @@ int list_search
             res = 1;
             break;
         }
-        n = list_next(n);
+        n = slist_next(n);
     }
     return res;
 }

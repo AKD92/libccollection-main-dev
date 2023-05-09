@@ -19,7 +19,7 @@
 
 
 
-#include "list.h"
+#include "slist.h"
 
 
 
@@ -33,7 +33,7 @@
 
 
 
-typedef List Queue;
+typedef SList Queue;
 
 
 
@@ -65,7 +65,7 @@ typedef List Queue;
  *  Returns:
  *      0 for successful
 */
-#define     queue_init          list_init
+#define     queue_init          slist_init
 
 
 
@@ -83,7 +83,7 @@ typedef List Queue;
  *  Returns:
  *      (void)
 */
-#define     queue_destroy       list_destroy
+#define     queue_destroy       slist_destroy
 
 
 
@@ -98,7 +98,7 @@ typedef List Queue;
  *  Returns:
  *      (unsigned int)  Number of elements the specified queue is holding.
 */
-#define     queue_size          list_size
+#define     queue_size          slist_size
 
 
 
@@ -125,7 +125,7 @@ typedef List Queue;
  *      0 if data does not exist
  *      -1 if data is NULL
 */
-#define     queue_search        list_search
+#define     queue_search        slist_search
 
 
 
@@ -179,7 +179,7 @@ int queue_dequeue(Queue *queue, void **data);
  *  Returns:
  *      (void *)        Pointer to the data element at the front of the queue
 */
-#define     queue_peek(queue)   (list_head(queue) == NULL ? NULL : list_head(queue)->data)
+#define     queue_peek(queue)   (slist_head(queue) == NULL ? NULL : slist_head(queue)->data)
 
 
 

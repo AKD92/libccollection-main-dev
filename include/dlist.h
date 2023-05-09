@@ -311,13 +311,8 @@ int dlist_remove(DList *list, DListElem *elem, void **data);
  *      0 if data does not exist
  *      -1 if data is NULL
 */
-int dlist_search
-(
-    DList *list,
-    void *data,
-    DListElem **elem,
-    int (*comparator) (const void *data1, const void *data2)
-);
+int dlist_search(DList *list, void *data, DListElem **elem,
+                 int (*comparator) (const void *data1, const void *data2));
 
 
 

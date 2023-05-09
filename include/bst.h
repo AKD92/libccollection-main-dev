@@ -18,9 +18,9 @@
 
 
 
-#include <list.h>
-#include <dlist.h>
-#include <queue.h>
+#include "slist.h"
+#include "dlist.h"
+#include "queue.h"
 
 
 
@@ -281,7 +281,7 @@ int bst_remove(BisTree *pTree, const void *pKey, void **pRemovedKey, void **pRem
  *      -1 if pTree or lstKeys pointers are invalid
  *      -2 if pTree is empty
 */
-int bst_keys(const BisTree *pTree, List *lstKeys);
+int bst_keys(const BisTree *pTree, SList *lstKeys);
 
 
 
@@ -301,7 +301,7 @@ int bst_keys(const BisTree *pTree, List *lstKeys);
  *      -1 if pTree or lstKeys pointers are invalid
  *      -2 if pTree is empty
 */
-int bst_elements(const BisTree *pTree, List *lstElements);
+int bst_elements(const BisTree *pTree, SList *lstElements);
 
 
 
@@ -324,7 +324,7 @@ int bst_elements(const BisTree *pTree, List *lstElements);
  *      -1 if pTree or lstKeys pointers are invalid
  *      -2 if pTree is empty
 */
-int bst_keys_elements(const BisTree *pTree, List *lstKeys, List *lstElements);
+int bst_keys_elements(const BisTree *pTree, SList *lstKeys, SList *lstElements);
 
 
 

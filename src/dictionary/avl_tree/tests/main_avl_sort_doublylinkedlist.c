@@ -2,8 +2,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <list.h>
-#include <dlist.h>
+#include "slist.h"
+#include "dlist.h"
 #include "avl.h"
 
 
@@ -32,7 +32,7 @@ int main(void) {
     }
     printf("\n\n");
     
-    printf("Printing integers from Linked List (Size: %u)\n", list_size(&numList));
+    printf("Printing integers from Linked List (Size: %u)\n", slist_size(&numList));
     elem = dlist_head(&numList);
     while (elem != 0) {
         pElem = (int *) dlist_data(elem);
@@ -44,7 +44,7 @@ int main(void) {
     printf("Applying TreeSort Algorithm to Linked List\n");
     avl_treesort_dl_desc(&numList, cmpInt);
     
-    printf("Printing After Sorting Integers (Size: %u)\n", list_size(&numList));
+    printf("Printing After Sorting Integers (Size: %u)\n", slist_size(&numList));
     elem = dlist_head(&numList);
     while (elem != 0) {
         pElem = (int *) dlist_data(elem);

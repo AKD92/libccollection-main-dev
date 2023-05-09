@@ -19,7 +19,7 @@
 
 
 
-#include "list.h"
+#include "slist.h"
 
 
 
@@ -33,7 +33,7 @@
 
 
 
-typedef List Stack;
+typedef SList Stack;
 
 
 
@@ -65,7 +65,7 @@ typedef List Stack;
  *  Returns:
  *      0 for successful
 */
-#define     stack_init          list_init
+#define     stack_init          slist_init
 
 
 
@@ -83,7 +83,7 @@ typedef List Stack;
  *  Returns:
  *      (void)
 */
-#define     stack_destroy       list_destroy
+#define     stack_destroy       slist_destroy
 
 
 
@@ -98,7 +98,7 @@ typedef List Stack;
  *  Returns:
  *      (unsigned int)  Number of elements the specified stack is holding.
 */
-#define     stack_size          list_size
+#define     stack_size          slist_size
 
 
 
@@ -125,7 +125,7 @@ typedef List Stack;
  *      0 if data does not exist
  *      -1 if data is NULL
 */
-#define     stack_search        list_search
+#define     stack_search        slist_search
 
 
 
@@ -179,7 +179,7 @@ int stack_pop(Stack *st, void **data);
  *  Returns:
  *      (void *)        Pointer to the data element at the front of the stack
 */
-#define     stack_peek(st)   (list_head(st) == NULL ? NULL : list_head(st)->data)
+#define     stack_peek(st)   (slist_head(st) == NULL ? NULL : slist_head(st)->data)
 
 
 

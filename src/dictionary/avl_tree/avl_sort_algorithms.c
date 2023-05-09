@@ -14,10 +14,10 @@
 
 #include "avl.h"
 #include "avl_internal.h"
-#include <list.h>
-#include <dlist.h>
-#include <stack.h>
-#include <queue.h>
+#include "slist.h"
+#include "dlist.h"
+#include "stack.h"
+#include "queue.h"
 
 
 
@@ -31,9 +31,9 @@ static void destroy_list(void *arg);
 
 
 
-int avl_treesort(List *list, int (*fpCompare) (const void *arg1, const void *arg2))
+int avl_treesort_sl(SList *list, int (*fpCompare) (const void *arg1, const void *arg2))
 {
-    return avl_treesort_asc(list, fpCompare);
+    return avl_treesort_sl_asc(list, fpCompare);
 }
 
 
@@ -45,11 +45,11 @@ int avl_treesort_dl(DList *dlist, int (*fpCompare) (const void *arg1, const void
 
 
 
-int avl_treesort_asc(List *list, int (*fpCompare) (const void *arg1, const void *arg2))
+int avl_treesort_sl_asc(SList *list, int (*fpCompare) (const void *arg1, const void *arg2))
 {
     
     void *pDataElem;
-    register ListElem *pLstElem;
+    register SListElem *pLstElem;
     int opval;
     BNode *pNode;
     AvlTree bTree;
@@ -58,7 +58,7 @@ int avl_treesort_asc(List *list, int (*fpCompare) (const void *arg1, const void 
     
     if (list == 0 || fpCompare == 0)
         return -1;
-    if (list_size(list) < 2)
+    if (slist_size(list) < 2)
         return 0;
     
     queue_init(&inorder, 0);
@@ -66,9 +66,9 @@ int avl_treesort_asc(List *list, int (*fpCompare) (const void *arg1, const void 
     
     
     /* Insert each object from Singly Linked List to Binary Search Tree (AvlTree) */
-    pLstElem = list_head(list);
+    pLstElem = slist_head(list);
     while (pLstElem != 0) {
-        pDataElem = list_data(pLstElem);
+        pDataElem = slist_data(pLstElem);
         opval = avl_insert(&bTree, (const void *) pDataElem, 0);
         
         /*  If insertion is failed (element already exists)
@@ -85,7 +85,7 @@ int avl_treesort_asc(List *list, int (*fpCompare) (const void *arg1, const void 
             }
             queue_enqueue(eqv_elems, (const void *) pDataElem);
         }
-        pLstElem = list_next(pLstElem);
+        pLstElem = slist_next(pLstElem);
     }
     
     
@@ -94,10 +94,10 @@ int avl_treesort_asc(List *list, int (*fpCompare) (const void *arg1, const void 
     
     
     /* Update object links (pointers) from Queue to Singly Linked List */
-    pLstElem = list_head(list);
+    pLstElem = slist_head(list);
     while (queue_size(&inorder) > 0) {
         queue_dequeue(&inorder, (void **) &pNode);
-        list_data(pLstElem) = pNode->pKey;
+        slist_data(pLstElem) = pNode->pKey;
         
         /*  We may have multiple eqv_elems of same element as value associated with this key
             If so, then obtain the queue and transfer the elements from queue to output list
@@ -105,12 +105,12 @@ int avl_treesort_asc(List *list, int (*fpCompare) (const void *arg1, const void 
         if (pNode->pElement != 0) {
             eqv_elems = (Queue *) pNode->pElement;
             while (queue_size(eqv_elems) > 0) {
-                pLstElem = list_next(pLstElem);
+                pLstElem = slist_next(pLstElem);
                 queue_dequeue(eqv_elems, (void **) &pDataElem);
-                list_data(pLstElem) = pDataElem;
+                slist_data(pLstElem) = pDataElem;
             }
         }
-        pLstElem = list_next(pLstElem);
+        pLstElem = slist_next(pLstElem);
     }
     
     queue_destroy(&inorder);
@@ -121,11 +121,11 @@ int avl_treesort_asc(List *list, int (*fpCompare) (const void *arg1, const void 
 
 
 
-int avl_treesort_desc(List *list, int (*fpCompare) (const void *arg1, const void *arg2))
+int avl_treesort_sl_desc(SList *list, int (*fpCompare) (const void *arg1, const void *arg2))
 {
     
     void *pDataElem;
-    register ListElem *pLstElem;
+    register SListElem *pLstElem;
     int opval;
     BNode *pNode;
     AvlTree bTree;
@@ -134,7 +134,7 @@ int avl_treesort_desc(List *list, int (*fpCompare) (const void *arg1, const void
     
     if (list == 0 || fpCompare == 0)
         return -1;
-    if (list_size(list) < 2)
+    if (slist_size(list) < 2)
         return 0;
     
     queue_init(&inorder, 0);
@@ -142,9 +142,9 @@ int avl_treesort_desc(List *list, int (*fpCompare) (const void *arg1, const void
     
     
     /* Insert each object from Singly Linked List to Binary Search Tree (AvlTree) */
-    pLstElem = list_head(list);
+    pLstElem = slist_head(list);
     while (pLstElem != 0) {
-        pDataElem = list_data(pLstElem);
+        pDataElem = slist_data(pLstElem);
         opval = avl_insert(&bTree, (const void *) pDataElem, 0);
         
         /*  If insertion is failed (element already exists)
@@ -161,7 +161,7 @@ int avl_treesort_desc(List *list, int (*fpCompare) (const void *arg1, const void
             }
             queue_enqueue(eqv_elems, (const void *) pDataElem);
         }
-        pLstElem = list_next(pLstElem);
+        pLstElem = slist_next(pLstElem);
     }
     
     
@@ -170,10 +170,10 @@ int avl_treesort_desc(List *list, int (*fpCompare) (const void *arg1, const void
     
     
     /* Update object links (pointers) from Stack to Singly Linked List */
-    pLstElem = list_head(list);
+    pLstElem = slist_head(list);
     while (queue_size(&inorder) > 0) {
         queue_dequeue(&inorder, (void **) &pNode);
-        list_data(pLstElem) = pNode->pKey;
+        slist_data(pLstElem) = pNode->pKey;
         
         /*  We may have multiple eqv_elems of same element as value associated with this key
             If so, then obtain the queue and transfer the elements from queue to output list
@@ -181,12 +181,12 @@ int avl_treesort_desc(List *list, int (*fpCompare) (const void *arg1, const void
         if (pNode->pElement != 0) {
             eqv_elems = (Queue *) pNode->pElement;
             while (queue_size(eqv_elems) > 0) {
-                pLstElem = list_next(pLstElem);
+                pLstElem = slist_next(pLstElem);
                 queue_dequeue(eqv_elems, (void **) &pDataElem);
-                list_data(pLstElem) = pDataElem;
+                slist_data(pLstElem) = pDataElem;
             }
         }
-        pLstElem = list_next(pLstElem);
+        pLstElem = slist_next(pLstElem);
     }
     
     queue_destroy(&inorder);

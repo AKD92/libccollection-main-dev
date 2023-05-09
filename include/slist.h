@@ -12,8 +12,8 @@
 
 
 
-#ifndef LIST_H_INCLUDED
-#define LIST_H_INCLUDED
+#ifndef SLIST_H_INCLUDED
+#define SLIST_H_INCLUDED
 
 
 
@@ -32,27 +32,27 @@
 
 
 
-struct ListElem_ {
+struct SListElem_ {
 
     void *data;
-    struct ListElem_ *next;
+    struct SListElem_ *next;
 
 };
-typedef struct ListElem_ ListElem;
+typedef struct SListElem_ SListElem;
 
 
 
 
-struct List_ {
+struct SList_ {
 
     unsigned int size;
     void (*destroy) (void *data);                     /* Called when a List object is destroyed */
 
-    ListElem *head;
-    ListElem *tail;
+    SListElem *head;
+    SListElem *tail;
 
 };
-typedef struct List_ List;
+typedef struct SList_ SList;
 
 
 
@@ -75,7 +75,7 @@ typedef struct List_ List;
  *  Returns:
  *      (unsigned int)  Number of elements the specified list is holding.
 */
-#define list_size(list) ((list)->size)
+#define slist_size(list) ((list)->size)
 
 
 
@@ -91,7 +91,7 @@ typedef struct List_ List;
  *  Returns:
  *      (ListElem *)    Pointer to the next ListElem object
 */
-#define list_next(elem) ((elem)->next)
+#define slist_next(elem) ((elem)->next)
 
 
 
@@ -107,7 +107,7 @@ typedef struct List_ List;
  *  Returns:
  *      (ListElem *)    Pointer to the ListElem object which is the head
 */
-#define list_head(list) ((list)->head)
+#define slist_head(list) ((list)->head)
 
 
 
@@ -123,7 +123,7 @@ typedef struct List_ List;
  *  Returns:
  *      (ListElem *)    Pointer to the ListElem object which is the tail
 */
-#define list_tail(list) ((list)->tail)
+#define slist_tail(list) ((list)->tail)
 
 
 
@@ -141,7 +141,7 @@ typedef struct List_ List;
  *      1 if elem is the head of list
  *      0 if it does not
 */
-#define list_is_head(list, elem) ((elem) == (list)->head ? 1 : 0)
+#define slist_is_head(list, elem) ((elem) == (list)->head ? 1 : 0)
 
 
 
@@ -159,7 +159,7 @@ typedef struct List_ List;
  *      1 if elem is the tail of list
  *      0 if it does not
 */
-#define list_is_tail(list, elem) ((elem) == (list)->tail ? 1 : 0)
+#define slist_is_tail(list, elem) ((elem) == (list)->tail ? 1 : 0)
 
 
 
@@ -174,7 +174,7 @@ typedef struct List_ List;
  *  Returns:
  *      (void *)        Pointer to the data element
 */
-#define list_data(elem) ((elem)->data)
+#define slist_data(elem) ((elem)->data)
 
 
 
@@ -194,7 +194,7 @@ typedef struct List_ List;
  *  Returns:
  *      0 for successful
 */
-int list_init(List *list, void (*destroy) (void *data));
+int slist_init(SList *list, void (*destroy) (void *data));
 
 
 
@@ -210,7 +210,7 @@ int list_init(List *list, void (*destroy) (void *data));
  *  Returns:
  *      (void)
 */
-void list_destroy(List *list);
+void slist_destroy(SList *list);
 
 
 
@@ -234,7 +234,7 @@ void list_destroy(List *list);
  *      0 for successful
  *      -1 if an error occurs
 */
-int list_ins_next(List *list, ListElem *elem, const void *data);
+int slist_ins_next(SList *list, SListElem *elem, const void *data);
 
 
 
@@ -257,7 +257,7 @@ int list_ins_next(List *list, ListElem *elem, const void *data);
  *      0 for successful
  *      -1 if an error occurs
 */
-int list_rem_next(List *list, ListElem *elem, void **data);
+int slist_rem_next(SList *list, SListElem *elem, void **data);
 
 
 
@@ -279,13 +279,8 @@ int list_rem_next(List *list, ListElem *elem, void **data);
  *      0 if data does not exist
  *      -1 if data is NULL
 */
-int list_search
-(
-    List *list,
-    void *data,
-    ListElem **elem,
-    int (*comparator) (const void *data1, const void *data2)
-);
+int slist_search(SList *list, void *data, SListElem **elem,
+                 int (*comparator) (const void *data1, const void *data2));
 
 
 

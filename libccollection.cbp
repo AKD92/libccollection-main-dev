@@ -201,7 +201,6 @@
 			<Option target="Release64" />
 			<Option target="TestHTable_Insert_Rehash_Remove" />
 		</Unit>
-		<Unit filename="include/list.h" />
 		<Unit filename="include/pq.h">
 			<Option target="Debug" />
 			<Option target="Debug64" />
@@ -209,6 +208,7 @@
 			<Option target="Release64" />
 		</Unit>
 		<Unit filename="include/queue.h" />
+		<Unit filename="include/slist.h" />
 		<Unit filename="include/stack.h" />
 		<Unit filename="src/binary_heap/bh_maxheap_algorithms.c">
 			<Option compilerVar="CC" />
@@ -431,7 +431,7 @@
 		<Unit filename="src/linked_list/dlist.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="src/linked_list/list.c">
+		<Unit filename="src/linked_list/slist.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/priority_queue/pq_init_destroy.c">
